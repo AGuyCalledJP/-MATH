@@ -21,10 +21,10 @@ print("loaded model from disk")
 loadedModel.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 #tests images showing 1 through 9 of the users choosing
-fileNames = ["theBig01.png","big1.png","big2.png","theBig3.png","theBig4.png","theBig53.png","big6.png","big7.png","big8.png","theBig93.png",]
+fileNames = ["theBig01.png","theBig3.png","theBig4.png"]
 
 for filename in fileNames:
-    img = load_img(filename, grayscale=True, target_size=(28, 28))
+    img = load_img(str(os.getcwd()) + "/bigDigitsImages/" + filename, grayscale=True, target_size=(28, 28))
     img = img_to_array(img)
     img = img.reshape(1, 28, 28, 1)
     img = img.astype('float32')
