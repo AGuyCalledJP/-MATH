@@ -4,6 +4,7 @@ from PyQt5.QtCore import *
 
 from MainWindow import Ui_MainWindow
 from TheBrain import PinkyAnd
+from Expression import *
 
 import os
 import random
@@ -305,10 +306,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def run(self):
         self.snapshot()
         res = PinkyAnd()
-        self.n(res)
+        self.kowalskianalysis(res)
 
-    def n(self, res):
-        print(res)
+    def kowalskianalysis(self, res):
+        res = res[0]
+        e = Expression()
+        a = Constant(res)
+        e.addSubExpr(a)
+        print(a)
         self.outputWindow.setText(str(res))
         self.outputWindow.update()
 
