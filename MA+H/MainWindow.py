@@ -12,7 +12,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         #Main Declarations
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(400,200)
+        MainWindow.resize(300,300)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
         self.eraserButton.setObjectName("eraserButton")
         self.gridLayout.addWidget(self.eraserButton, 1, 0, 1, 1)
 
-        #Pen for which to do the Math
+        #Pen for which to do the maths
         self.penButton = QtWidgets.QPushButton(self.widget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -77,10 +77,27 @@ class Ui_MainWindow(object):
         self.penButton.setObjectName("penButton")
         self.gridLayout.addWidget(self.penButton, 3, 0, 1, 1)
 
+        #Run button to run the thing
+        self.runButton = QtWidgets.QPushButton(self.widget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.runButton.sizePolicy().hasHeightForWidth())
+        self.runButton.setSizePolicy(sizePolicy)
+        self.runButton.setMinimumSize(QtCore.QSize(30, 30))
+        self.runButton.setMaximumSize(QtCore.QSize(30, 30))
+        self.runButton.setText("")
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("images/arrow-000.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.runButton.setIcon(icon8)
+        self.runButton.setCheckable(False)
+        self.runButton.setObjectName("runbutton")
+        self.gridLayout.addWidget(self.runButton, 5, 0, 1, 1)
+
+
         self.verticalLayout_2.addWidget(self.widget)    
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem)
-
         self.horizontalLayout.addLayout(self.verticalLayout_2)
         
         #Canvas
@@ -103,19 +120,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.widget_3 = QtWidgets.QWidget(self.centralWidget)
         self.widget_3.setMinimumSize(QtCore.QSize(300, 25))
-        # self.widget_3.setMaximumSize(QtCore.QSize(78, 16777215))
         self.widget_3.setObjectName("widget_3")
-        self.outputWindow = QtWidgets.QPlainTextEdit(self.widget_3)
-        self.outputWindow.insertPlainText("Please enter a number")
-        self.outputWindow.setReadOnly(True)
+        self.outputWindow = QtWidgets.QLabel(self.widget_3)
+        self.outputWindow.setText("Please enter a number")
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.canvas.sizePolicy().hasHeightForWidth())
         self.outputWindow.setSizePolicy(sizePolicy)
-        # self.outputWindow.setGeometry(QtCore.QRect(0, 0, 1000, 600))
-        # self.outputWindow.setMinimumSize(QtCore.QSize(1000, 600))
-        # self.outputWindow.setMaximumSize(QtCore.QSize(1000, 600))
         self.outputWindow.setObjectName("outputWindow")
         self.horizontalLayout_2.addWidget(self.widget_3)
         spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -174,7 +186,7 @@ class Ui_MainWindow(object):
         self.actionFlipVertical.setObjectName("actionFlipVertical")
         self.actionNewImage = QtWidgets.QAction(MainWindow)
         icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap("images/document-image.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon18.addPixmap(QtGui.QPixmap("images/arrow-circle-315.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionNewImage.setIcon(icon18)
         self.actionNewImage.setObjectName("actionNewImage")
         self.actionBold = QtWidgets.QAction(MainWindow)
@@ -218,7 +230,6 @@ class Ui_MainWindow(object):
         self.fileToolbar.addAction(self.actionNewImage)
         self.fileToolbar.addAction(self.actionOpenImage)
         self.fileToolbar.addAction(self.actionSaveImage)
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
