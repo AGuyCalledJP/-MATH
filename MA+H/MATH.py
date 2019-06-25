@@ -313,8 +313,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         e = Expression()
         a = Constant(res)
         e.addSubExpr(a)
-        print(a)
-        self.outputWindow.setText(str(res))
+        print(e)
+        self.outputWindow.setText(str(e))
         self.outputWindow.update()
 
     def set_primary_color(self, hex):
@@ -387,7 +387,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         """
         pwd = os.getcwd()
         end = os.listdir(pwd + "/runoff/")
-        print(len(end))
         os.rename(pwd + "/run.png",(pwd + "/runoff/run" + str(len(end)) + ".png"))
         pixmap = self.canvas.pixmap()
         pixmap.save('run.png', "PNG" )
