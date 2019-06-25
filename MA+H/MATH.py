@@ -81,7 +81,7 @@ class Canvas(QLabel):
     # Store configuration settings, including pen width, fonts etc.
     config = {
         # Drawing options.
-        'size': 4,
+        'size': 12,
         'fill': True,
         # Font options.
         'font': QFont('Times'),
