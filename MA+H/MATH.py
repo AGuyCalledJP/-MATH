@@ -4,6 +4,7 @@ from PyQt5.QtCore import *
 
 from MainWindow import Ui_MainWindow
 from TheBrain import PinkyAnd
+from DarkBrain import Run as R
 from Expression import *
 
 import os
@@ -305,8 +306,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def run(self):
         self.snapshot()
-        res = PinkyAnd()
-        self.kowalskianalysis(res)
+        R()
+        # self.kowalskianalysis(res)
 
     def kowalskianalysis(self, res):
         res = res[0]
@@ -385,11 +386,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         Save active canvas to image file.
         :return:
         """
-        pwd = os.getcwd()
-        end = os.listdir(pwd + "/runoff/")
-        os.rename(pwd + "/run.png",(pwd + "/runoff/run" + str(len(end)) + ".png"))
+        if os.path.isfile("run.jpg"):
+            pwd = os.getcwd()
+            end = os.listdir(pwd + "/runoff/")
+            os.rename(pwd + "/run.jpg",(pwd + "/runoff/run" + str(len(end)) + ".jpg"))
         pixmap = self.canvas.pixmap()
-        pixmap.save('run.png', "PNG" )
+        pixmap.save('run.jpg', "JPG" )
 
     def invert(self):
         img = QImage(self.canvas.pixmap())
