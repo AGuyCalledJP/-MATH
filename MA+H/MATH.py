@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
 from MainWindow import Ui_MainWindow
-from TheBrain import PinkyAnd
+# from TheBrain import PinkyAnd
 from DarkBrain import Run as R
 from Expression import *
 
@@ -45,7 +45,7 @@ FUNCTIONS = [
      'run'
 ]
 
-CANVAS_DIMENSIONS = 300,300
+CANVAS_DIMENSIONS = 832,832
 
 STAMP_DIR = './stamps'
 STAMPS = [os.path.join(STAMP_DIR, f) for f in os.listdir(STAMP_DIR)]
@@ -82,7 +82,7 @@ class Canvas(QLabel):
     # Store configuration settings, including pen width, fonts etc.
     config = {
         # Drawing options.
-        'size': 12,
+        'size': 6,
         'fill': True,
         # Font options.
         'font': QFont('Times'),
