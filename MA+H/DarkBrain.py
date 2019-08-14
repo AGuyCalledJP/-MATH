@@ -77,7 +77,8 @@ def Run():
 
     indices = cv2.dnn.NMSBoxes(boxes, confidences, conf_threshold, nms_threshold)
 
-    predictions = []
+    print("indices")
+    print(len(indices))
 
     for i in indices:
         i = i[0]
@@ -87,14 +88,9 @@ def Run():
         w = box[2]
         h = box[3]
         draw_prediction(classes, COLORS, image, class_ids[i], confidences[i], round(x), round(y), round(x+w), round(y+h))
-        prediction = []
-        prediction.append(classes[class_ids[i]])
-        prediction.append(round(x))
-        prediction.append(round(y))
-        prediction.append(round(w))
-        prediction.append(round(h))
-        predictions.append(prediction)
-                
+
+    cv2.imshow("object detection", image)
+    cv2.waitKey()
+        
     cv2.imwrite("object-detection.jpg", image)
-    
-    return predictions
+    cv2.destroyAllWindows()

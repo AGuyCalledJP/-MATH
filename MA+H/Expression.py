@@ -21,11 +21,8 @@ class Expression:
 #Class for numerical constants
 class Constant:
     def __init__(self,value):
-        self.value = int(value)
+        self.value = value
     
-    def addVal(self,value):
-        self.value = (self.value * 10) + int(value)
-
     def __str__(self):
         return str(self.value)
 
@@ -52,21 +49,8 @@ class Subtraction:
     def __str__(self):
         return str(self.value)
 
-class Multiplication:
-    def __init__(self):
-        self.value = "*"
-
-    def __str__(self):
-        return str(self.value)  
-
-class Division:
-    def __init__(self):
-        self.value = "/"
-
-    def __str__(self):
-        return str(self.value)  
-
 ###STRUCTURES
+
 class Fraction:
     def __init__(self):
         self.numerator = None
@@ -81,7 +65,7 @@ class Fraction:
     def __str__(self):
         return "(" + str(self.numerator) + ")/(" + str(self.denominator) + ")"
 
-class Applicator:
+class Multiplication:
     def __init__(self):
         self.first = None
         self.second = None
