@@ -5,6 +5,7 @@ from PyQt5.QtCore import *
 from MainWindow import Ui_MainWindow
 # from TheBrain import PinkyAnd
 from DarkBrain import Run as R
+from MakeExpression import *
 from Expression import *
 
 import os
@@ -306,16 +307,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def run(self):
         self.snapshot()
-        R()
-        # self.kowalskianalysis(res)
+        res = R()
+        self.kowalskianalysis(res)
 
     def kowalskianalysis(self, res):
-        res = res[0]
-        e = Expression()
-        a = Constant(res)
-        e.addSubExpr(a)
-        print(e)
-        self.outputWindow.setText(str(e))
+        ordering = OrderInputs(res)
+        expression = CreateExpression(ordering)
+        print(expression)
+        self.outputWindow.setText(str(expression))
         self.outputWindow.update()
 
     def set_primary_color(self, hex):
